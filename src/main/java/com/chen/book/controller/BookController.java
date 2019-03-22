@@ -29,22 +29,8 @@ public class BookController {
     public String bookList(Model model){
         List<Book> bookList=new ArrayList<>();
 //        bookList=bookService.bookList();
-        for(Book book:bookList){
-            System.out.println(book);
-        }
 
        bookList=bookService.findBookUserResultMap();
-//        List<ViewObj> vos=new ArrayList<>();
-//        for(Book book:bookList){
-//            ViewObj vo=new ViewObj();
-//            vo.set("book",book);
-//            vo.set("user",userService.findUserById(book.getUserId()));
-//            vos.add(vo);
-//        }
-//
-//        model.addAttribute("vos",vos);
-
-
         model.addAttribute("bookList",bookList);
         return "index";
     }

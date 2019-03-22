@@ -67,8 +67,8 @@ public class UploadController {
         String orginalPicName=bookPic.getOriginalFilename();
         String fileExetension= orginalPicName.substring(orginalPicName.lastIndexOf("."));
         String newName=FileUtil.getRandomFileName()+fileExetension;
-        String sqlUrl=basePath+newName;
-        File file=new File(sqlUrl);
+        String sqlUrl=newName;
+        File file=new File(basePath+newName);
         try {
             bookPic.transferTo(file);
         } catch (IOException e) {

@@ -22,7 +22,7 @@
         <c:forEach items="${bookList}" var="book">
             <li data-id="123">
                 <a class="fly-case-img" href="${pageContext.request.contextPath}/detail/book/${book.bookId}" target="_blank" >
-                    <img src="${pageContext.request.contextPath}/resources/image/timg.jpg"  alt="二手社区">
+                    <img src="${pageContext.request.contextPath}/resources/image/${book.bookImg}"  alt="二手社区">
                     <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
                 </a>
                 <h2><a href="http://fly.layui.com/" target="_blank">${book.bookName}</a></h2>
@@ -37,20 +37,7 @@
             </li>
         </c:forEach>
 
-        <%--<li data-id="123">--%>
-            <%--<a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >--%>
-                <%--<img src="../../res/images/fly.jpg" alt="二手社区">--%>
-                <%--<cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>--%>
-            <%--</a>--%>
-            <%--<h2><a href="http://fly.layui.com/" target="_blank">社区</a></h2>--%>
-            <%--<p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>--%>
-            <%--<div class="fly-case-info">--%>
-                <%--<a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>--%>
-                <%--<p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>--%>
 
-                <%--<!-- <button class="layui-btn  fly-case-active" data-type="praise">已赞</button> -->--%>
-            <%--</div>--%>
-        <%--</li>--%>
 
 
 

@@ -29,7 +29,7 @@
                     <h3>价格：${bookDetail.bookPrice}</h3>
 
                     <p>${bookDetail.bookDesc}</p>
-                    <img src="${pageContext.request.contextPath}/resources/image/book-icon.jpg" alt="">
+                    <img src="${pageContext.request.contextPath}/resources/image/${bookDetail.bookImg}" alt="">
 
                 </div>
             </div>
