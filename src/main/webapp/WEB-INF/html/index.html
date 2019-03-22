@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>怀德二手书籍交易</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}../../../resources/layui/css/layui.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}../../../resources/css/global.css">
+
+
+
+</head>
+<body class="fly-full">
+<div class="fly-header layui-bg-black">
+    <div class="layui-container">
+
+        <ul class="layui-nav fly-nav layui-hide-xs">
+
+            <li class="layui-nav-item layui-this">
+                <a href="/">首页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="/"><i class="layui-icon layui-icon-release"></i>发布书籍</a>
+            </li>
+            <li class="layui-nav-item">
+
+                <input type="text" name="title" lay-verify="title" autocomplete="off"  class="layui-input">
+
+            </li>
+            <li class="layui-nav-item">
+                <button class="layui-btn">搜索</button>
+            </li>
+
+        </ul>
+
+
+        <ul class="layui-nav fly-nav-user">
+            <!-- 未登入的状态 -->
+            <li class="layui-nav-item">
+                <a class="iconfont icon-touxiang layui-hide-xs" href="user/login.html"></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="user/login.html">登入</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="user/reg.html">注册</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<div class="fly-main" style="overflow: hidden;">
+<ul class="fly-case-list">
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="二手社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+
+            <!-- <button class="layui-btn  fly-case-active" data-type="praise">已赞</button> -->
+        </div>
+    </li>
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="Fly社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">Fly社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+
+        </div>
+    </li>
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="Fly社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">Fly社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+        </div>
+    </li>
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="Fly社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">Fly社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+
+        </div>
+    </li>
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="Fly社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">Fly社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+
+        </div>
+    </li>
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="Fly社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">Fly社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+
+        </div>
+    </li>
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="Fly社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">Fly社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+
+        </div>
+    </li>
+    <li data-id="123">
+        <a class="fly-case-img" href="http://fly.layui.com/" target="_blank" >
+            <img src="../../res/images/fly.jpg" alt="Fly社区">
+            <cite class="layui-btn layui-btn-primary layui-btn-small">去围观</cite>
+        </a>
+        <h2><a href="http://fly.layui.com/" target="_blank">Fly社区</a></h2>
+        <p class="fly-case-desc">Fly 社区是 layui 的官方社区，全站的前端层面基于 Layui 风格编写，轻量而简洁，并且模版已经开源，可用于极简社区模板。</p>
+        <div class="fly-case-info">
+            <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+            <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">贤心</span> 2017-11-30</p>
+
+        </div>
+    </li>
+</ul>
+    <div style="text-align: center;">
+        <div class="laypage-main">
+            <span class="laypage-curr">1</span>
+            <a href="">2</a><a href="">3</a>
+            <a href="">4</a>
+            <a href="">5</a>
+            <span>…</span>
+            <a href="" class="laypage-last" title="尾页">尾页</a>
+            <a href="" class="laypage-next">下一页</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="fly-footer">
+    <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
+    <p>
+        <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
+        <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
+        <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    </p>
+</div>
+
+
+<script src="${pageContext.request.contextPath}../../../resources/layui/layui.js"></script>
+
+</body>
+</html>
