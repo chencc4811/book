@@ -1,5 +1,7 @@
 package com.chen.book.controller;
 
+import com.chen.book.bookUtils.FileUtil;
+import com.chen.book.bookUtils.ImageUtil;
 import com.chen.book.entity.Area;
 import com.chen.book.entity.Book;
 import com.chen.book.entity.Category;
@@ -12,10 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("upload")
@@ -43,13 +51,32 @@ public class UploadController {
     }
 
     @RequestMapping("book")
-    public String upBook(Model model,String bookName, String bookDesc, int price, Integer userId, Integer categoryId,Integer areaId,HttpSession httpSession){
+    public String upBook(Model model,String bookName,
+                         String bookDesc, int price,
+                         Integer userId, Integer categoryId,
+                         Integer areaId,HttpSession httpSession,
+                         @RequestParam("bookPic") MultipartFile bookPic){
         Book book=new Book();
         User user=null;
+        Map<String,Object> map=new HashMap<>();
         if(httpSession.getAttribute("loginUser")==null){
             model.addAttribute("msg","用户未登录");
             return "errorPage";
         }
+        String basePath= FileUtil.getImgBasePath();
+        String orginalPicName=bookPic.getOriginalFilename();
+        String fileExetension= orginalPicName.substring(orginalPicName.lastIndexOf("."));
+        String newName=FileUtil.getRandomFileName()+fileExetension;
+        String sqlUrl=basePath+newName;
+        File file=new File(sqlUrl);
+        try {
+            bookPic.transferTo(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+            map.put("msg",e);
+        }
+
+
         user=(User)httpSession.getAttribute("loginUser");
         Category category=new Category();
         Area area=new Area();
@@ -60,13 +87,18 @@ public class UploadController {
         book.setBookDesc(bookDesc);
         book.setBookPrice(price);
         book.setBookName(bookName);
-        book.setBookImg(null);
+        book.setBookImg(sqlUrl);
 
         book.setCategory(category);
         book.setArea(area);
         System.out.println(book.toString());
 
-        bookService.insertBook(book);
+        try {
+            map=bookService.insertBook(book);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return "forward:/book/list";
 
 

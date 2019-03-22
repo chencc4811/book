@@ -35,7 +35,6 @@ public class BookService {
         Map<String,Object> map=new HashMap<>();
         try {
             bookMapper.insertBook(book);
-            map.put("msg","sucess");
 
         } catch (Exception e) {
             e.printStackTrace();

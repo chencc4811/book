@@ -12,7 +12,7 @@
 <jsp:include   page="head.jsp" flush="true"/>
 
 <div class="fly-main">
-<form class="layui-form" action="${pageContext.request.contextPath}/upload/book">
+<form class="layui-form" action="${pageContext.request.contextPath}/upload/book" enctype="multipart/form-data" method="post">
     <div class="layui-form-item">
         <label class="layui-form-label">书籍名称</label>
         <div class="layui-input-block">
@@ -56,9 +56,8 @@
 
 
     <div  style="text-align:center">
-        <button type="button" class="layui-btn" id="test1" style="text-align:center">
-            <i class="layui-icon">&#xe67c;</i>上传图片
-        </button>
+        图片上传：<input type="file" name="bookPic">
+
     </div>
 
     <div class="layui-form-item layui-form-text">
@@ -79,23 +78,7 @@
 <jsp:include   page="buttom.jsp" flush="true"/>
 
 <script src="${pageContext.request.contextPath}/resources/layui/layui.js"></script>
-<script>
-    layui.use('upload', function(){
-        var upload = layui.upload;
 
-        //执行实例
-        var uploadInst = upload.render({
-            elem: '#test1' //绑定元素
-            ,url: '/upload/' //上传接口
-            ,done: function(res){
-                //上传完毕回调
-            }
-            ,error: function(){
-                //请求异常回调
-            }
-        });
-    });
-</script>
 <script>
     //Demo
     layui.use('form', function(){
