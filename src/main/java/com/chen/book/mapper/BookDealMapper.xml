@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.book.mapper.BookDealMapper">
+    <insert id="insertBookDeal">
+        insert into tb_deal(seller_id,buyer_id,book_id,deal_time)
+        values (#{sellerId},#{buyerId},#{bookId},#{dealTime})
+    </insert>
+
+
+
+    <resultMap id="SellerBookAreaResultMap" type="com.chen.book.entity.Deal">
+        <id property="id" column="id"></id>
+        <result property="sellerId" column="seller_id"></result>
+        <result property="buyerId" column="buyer_id"></result>
+        <result property="bookId" column="book_id"></result>
+        <result property="dealTiem" column="deal_time"></result>
+
+        <association property="book" javaType="com.chen.book.entity.Book">
+            <result property="bookId" column="book_id"></result>
+            <result property="areaId" column="book_area"></result>
+            <result property="bookName" column="book_name"></result>
+            <result property="bookDesc" column="book_desc"></result>
+            <result property="bookPrice" column="book_price"></result>
+            <result property="userId" column="user_id"></result>
+        </association>
+
+        <association property="user" javaType="com.chen.book.entity.User">
+            <id property="userId" column="user_id"></id>
+            <result property="userName" column="user_name"></result>
+            <result property="phone" column="phone"></result>
+            <result property="headPic" column="headPic"></result>
+        </association>
+        <association property="area" javaType="com.chen.book.entity.Area">
+            <id property="areaId" column="area_id"></id>
+            <result property="areaName" column="area_name"></result>
+        </association>
+    </resultMap>
+
+    <select id="findSellerBookAreaResultMap" resultMap="SellerBookAreaResultMap">
+        select
+        d.seller_id,
+        d.book_id,
+        b.book_name,
+        b.book_id,
+        b.user_id,
+        b.book_desc,
+        b.book_price,
+        a.area_name,
+        u.user_name,
+        u.phone,
+        u.user_id
+        from tb_deal d
+        inner join tb_user u on d.seller_id=u.user_id
+        inner join tb_book b on d.book_id=b.book_id
+        inner join tb_area a on b.book_area=a.area_id
+        and d.buyer_id=#{buyerId}
+
+    </select>
+
+
+</mapper>
