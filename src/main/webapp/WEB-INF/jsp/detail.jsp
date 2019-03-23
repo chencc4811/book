@@ -27,6 +27,7 @@
 
                     <h3>交易地点：${bookDetail.area.areaName}</h3>
                     <h3>价格：${bookDetail.bookPrice}</h3>
+                    <h3>我的联系方式：${bookDetail.user.phone}</h3>
 
                     <p>${bookDetail.bookDesc}</p>
                     <img src="${pageContext.request.contextPath}/resources/image/${bookDetail.bookImg}" alt="">
@@ -35,8 +36,9 @@
             </div>
             <a name="comment"> </a>
             <div class="comt layui-clear">
-                <a href="${pageContext.request.contextPath}/"><button class="layui-btn">我要了</button></a>
+                <a href="${pageContext.request.contextPath}/book/buy/${sessionScope.loginUser.userId}/${bookDetail.userId}/${bookDetail.bookId}"><button class="layui-btn">我要了</button></a>
                 <a href="${pageContext.request.contextPath}/detail/toComm" class="pull-right">写评论</a>
+
             </div>
             <div id="LAY-msg-box">
                 <div class="info-item">

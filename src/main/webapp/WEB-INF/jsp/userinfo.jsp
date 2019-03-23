@@ -24,10 +24,15 @@
         <col>
     </colgroup>
     <thead>
+    <tr><p1>我发布的</p1></tr>
+
+    </thead>
+    <thead>
     <tr>
         <th>书名</th>
         <th>描述</th>
         <th>价格</th>
+        <th>操作</th>
     </tr>
     </thead>
     <tbody>
@@ -37,6 +42,42 @@
             <td>${book.bookDesc}</td>
             <td>${book.bookPrice}</td>
             <td><a href="${pageContext.request.contextPath}/book/edit1/${book.bookId}"><button class="layui-btn">编辑</button></a></td>
+        </tr>
+    </c:forEach>
+
+
+    </tbody>
+</table>
+
+
+<table class="layui-table">
+    <colgroup>
+        <col width="150">
+        <col width="200">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>我买到的</tr>
+
+    </thead>
+    <thead>
+    <tr>
+        <th>书名</th>
+        <th>描述</th>
+        <th>价格</th>
+        <th>卖方电话</th>
+        <th>交易地点</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${bookBuyList}" var="bookbuy">
+        <tr>
+            <td>${bookbuy.book.bookName}</td>
+            <td>${bookbuy.book.bookDesc}</td>
+            <td>${bookbuy.book.bookPrice}</td>
+            <td>${bookbuy.user.phone}</td>
+            <td>${bookbuy.user}</td>
         </tr>
     </c:forEach>
 

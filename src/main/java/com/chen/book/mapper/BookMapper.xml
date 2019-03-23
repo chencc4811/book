@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chen.book.mapper.BookMapper">
-    <insert id="insertBook" >
+    <insert id="insertBook">
         insert into
         tb_book(book_name,book_desc,book_img,book_price,user_id,book_category_id,book_area)
         values(#{bookName},#{bookDesc},#{bookImg},#{bookPrice},#{user.userId},#{category.bookCategoryId},#{area.areaId})
@@ -21,6 +21,13 @@
         </set>
         where book_id=#{bookId}
     </update>
+    <update id="updateBookStatus" parameterType="com.chen.book.entity.Book">
+        update tb_book set
+        status=#{status}
+
+
+        where book_id=#{bookId}
+    </update>
     <select id="queryAllBook" resultType="com.chen.book.entity.Book">
         select
         book_name,
@@ -31,11 +38,11 @@
         user_id,
         book_id,
         book_area
-
         from
         tb_book
     </select>
-    <select id="queryBookById" resultType="com.chen.book.entity.Book" >
+
+    <select id="queryBookById" resultType="com.chen.book.entity.Book">
         select
         book_name,
         book_desc,
@@ -49,7 +56,7 @@
         where book_id=#{bookId}
     </select>
 
-    <select id="queryBookByUserId" resultType="com.chen.book.entity.Book" >
+    <select id="queryBookByUserId" resultType="com.chen.book.entity.Book">
         select
         book_name,
         book_desc,
@@ -82,7 +89,7 @@
 
     </resultMap>
 
-    
+
     <select id="queryBookUserResultMap" resultMap="bookUserResultMap">
         select
         b.user_id,
@@ -96,7 +103,7 @@
         u.headPic
         from
         tb_book b
-        left join tb_user u on b.user_id=u.user_id
+        left join tb_user u on b.user_id=u.user_id where status=#{_status}
     </select>
 
     <resultMap id="bookAreaResultMap" type="com.chen.book.entity.Book">
@@ -125,6 +132,48 @@
         from
         tb_book b
         inner join tb_area a on b.book_area=a.area_id and b.book_id=#{bookId}
+    </select>
+
+
+    <resultMap id="bookUserAreaResultMap" type="com.chen.book.entity.Book">
+        <id property="bookId" column="book_id"></id>
+        <result property="bookName" column="book_name"></result>
+        <result property="bookDesc" column="book_desc"></result>
+        <result property="bookImg" column="book_img"></result>
+        <result property="bookPrice" column="book_price"></result>
+        <result property="userId" column="user_id"></result>
+
+        <association property="user" javaType="com.chen.book.entity.User">
+            <id property="userId" column="user_id"></id>
+            <result property="userName" column="user_name"></result>
+            <result property="phone" column="phone"></result>
+            <result property="headPic" column="headPic"></result>
+        </association>
+        <association property="area" javaType="com.chen.book.entity.Area">
+            <id property="areaId" column="area_id"></id>
+            <result property="areaName" column="area_name"></result>
+        </association>
+
+
+    </resultMap>
+
+    <select id="queryBookUserAreaResultMap" resultMap="bookUserAreaResultMap">
+        select
+        b.book_area,
+        b.book_id,
+        b.user_id,
+        b.book_name,
+        b.book_desc,
+        b.book_img,
+        b.book_price,
+        a.area_name,
+        u.phone,
+        u.user_name
+        from
+        tb_book b
+        inner join tb_area a on b.book_area=a.area_id
+        inner join tb_user u on b.user_id=u.user_id
+        and b.book_id=#{bookId}
     </select>
 
 </mapper>

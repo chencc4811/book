@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -33,12 +34,22 @@ public class DetailController {
     public String bookDetail(@PathVariable Integer bookId, Model model){
 
 //        Book book=bookService.findBookById(bookId);
-        Book book=bookService.findBookAreaResultMap(bookId);
+//        Book book=bookService.findBookAreaResultMap(bookId);
+        Book book=bookService.findBookUserAreaResultMap(bookId);
+        System.out.println(book);
+
 
         model.addAttribute("bookDetail",book);
         return "detail";
 
+    }
 
-
+    @RequestMapping("buy")
+    public String buyBook(@RequestParam(value = "bookId",defaultValue = "-1") Integer bookId, Model model){
+        if(bookId==-1){
+            model.addAttribute("msg","请登录");
+            return "errorPage";
+        }
+        return null;
     }
 }

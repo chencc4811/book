@@ -1,19 +1,20 @@
 package com.chen.book.service;
 
 import com.chen.book.entity.Book;
+import com.chen.book.entity.Deal;
+import com.chen.book.mapper.BookDealMapper;
 import com.chen.book.mapper.BookMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class BookService {
     @Autowired
     private BookMapper bookMapper;
+    @Autowired
+    private BookDealMapper bookDealMapper;
     public List<Book> bookList(){
         List<Book> books=new ArrayList<>();
         books=bookMapper.queryAllBook();
@@ -43,8 +44,44 @@ public class BookService {
         return map;
     }
 
-    public List<Book> findBookUserResultMap(){
-        return bookMapper.queryBookUserResultMap();
+    public List<Book> findBookUserResultMap(Integer status){
+        return bookMapper.queryBookUserResultMap(status);
+
+    }
+    public Book findBookUserAreaResultMap(Integer bookId){
+        return bookMapper.queryBookUserAreaResultMap(bookId);
+
+    }
+
+    public Map<String,Object> dealBook(Integer sellerId, Integer buyerId, Integer bookId,Integer status){
+        Map<String,Object> map=new HashMap<>();
+        System.out.println(status);
+        Book book=new Book();
+        book.setBookId(bookId);
+        book.setStatus(status);
+        try {
+            bookMapper.updateBookStatus(book);
+            map.put("msg","update book succes");
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("msg","exception");
+
+        }
+        Deal deal=new Deal();
+        deal.setBookId(bookId);
+        deal.setBuyerId(buyerId);
+        deal.setSellerId(sellerId);
+        deal.setDealTime(new Date());
+        try {
+            bookDealMapper.insertBookDeal(deal);
+            map.put("msg","insert error");
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("msg",e);
+        }
+        map.put("msg","success");
+        return map;
+
 
     }
 

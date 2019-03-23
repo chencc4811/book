@@ -5,6 +5,16 @@ package com.chen.book.entity;
 
 public class Book {
     private Integer bookId;
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     private String bookName;
     private String bookDesc;
     private String bookImg;
