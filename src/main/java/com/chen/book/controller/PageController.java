@@ -29,10 +29,7 @@ public class PageController {
     public String test4(){
         return "index";
     }
-    @RequestMapping("detail")
-    public String test5(){
-        return "detail";
-    }
+
     @RequestMapping("comment")
     public String test6(){
         return "comment";

@@ -1,14 +1,12 @@
 package com.chen.book.controller;
 
 import com.chen.book.bookUtils.FileUtil;
-import com.chen.book.bookUtils.ImageUtil;
 import com.chen.book.entity.Area;
 import com.chen.book.entity.Book;
 import com.chen.book.entity.Category;
 import com.chen.book.entity.User;
 import com.chen.book.service.AreaService;
 import com.chen.book.service.BookCategoryService;
-
 import com.chen.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

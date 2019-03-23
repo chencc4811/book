@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>怀德二手书交易系统</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/layui/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/global.css">
 </head>
@@ -29,7 +29,7 @@
                 <p class="fly-case-desc">${book.bookDesc}</p>
                 <h2 style="color: red">￥：${book.bookPrice}</h2>
                 <div class="fly-case-info">
-                    <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"></a>
+                    <a href="../user/home.html" class="fly-case-user" target="_blank"><img src="${pageContext.request.contextPath}/resources/image/starfish.jpg"></a>
                     <p class="layui-elip" style="font-size: 12px;"><span style="color: #666;">${book.user.userName}</span> 2017-11-30</p>
 
                     <!-- <button class="layui-btn  fly-case-active" data-type="praise">已赞</button> -->

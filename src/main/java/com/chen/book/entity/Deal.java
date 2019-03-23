@@ -12,6 +12,14 @@ public class Deal {
     private Book book;
     private Area area;
 
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
     public int getId() {
         return id;
     }

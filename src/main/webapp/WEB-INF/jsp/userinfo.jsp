@@ -65,6 +65,7 @@
         <th>书名</th>
         <th>描述</th>
         <th>价格</th>
+        <th>卖方</th>
         <th>卖方电话</th>
         <th>交易地点</th>
 
@@ -76,8 +77,9 @@
             <td>${bookbuy.book.bookName}</td>
             <td>${bookbuy.book.bookDesc}</td>
             <td>${bookbuy.book.bookPrice}</td>
+            <td>${bookbuy.user.userName}</td>
             <td>${bookbuy.user.phone}</td>
-            <td>${bookbuy.user}</td>
+            <td>${bookbuy.area.areaName}</td>
         </tr>
     </c:forEach>
 

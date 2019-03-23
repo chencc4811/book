@@ -45,16 +45,16 @@
     </div>
 
 
-    <div  style="text-align:center">
-        <button type="button" class="layui-btn" id="uploadBt" style="text-align:center">
-            <i class="layui-icon">&#xe67c;</i>上传头像
-        </button>
-    </div>
+    <%--<div  style="text-align:center">--%>
+        <%--<button type="button" class="layui-btn" id="uploadBt" style="text-align:center">--%>
+            <%--<i class="layui-icon">&#xe67c;</i>上传头像--%>
+        <%--</button>--%>
+    <%--</div>--%>
 
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo" >注册</button>
+            <button class="layui-btn" lay-submit lay-filter="formDemo" id="button-reg">注册</button>
             <button type="reset" class="layui-btn layui-btn-primary" id="b">重置</button>
         </div>
     </div>
@@ -120,8 +120,7 @@
         }
         else {
             $("#msg2").text("两次密码不相同");
-            $("#b1").attr("disabled", true);
-            // $("button").attr("disabled","disabled");
+            $("#button-reg").attr("disabled", false);
         }
     }
 </script>

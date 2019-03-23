@@ -25,18 +25,20 @@
                 <div class="item-box  layer-photos-demo1 layer-photos-demo">
                     <h1><a href="details.html">${bookDetail.bookName}</a></h1>
 
-                    <h3>交易地点：${bookDetail.area.areaName}</h3>
-                    <h3>价格：${bookDetail.bookPrice}</h3>
-                    <h3>我的联系方式：${bookDetail.user.phone}</h3>
+                    <h3 style="color: #40AFFE">交易地点：${bookDetail.area.areaName}</h3>
+                    <h3 style="color: red">价格：${bookDetail.bookPrice}￥</h3>
+                    <h3 style="color: darkslategray">我的联系方式：${bookDetail.user.phone}</h3>
+                    <div>
+                        <p3>描述：${bookDetail.bookDesc}</p3>
 
-                    <p>${bookDetail.bookDesc}</p>
+                    </div>
                     <img src="${pageContext.request.contextPath}/resources/image/${bookDetail.bookImg}" alt="">
 
                 </div>
             </div>
             <a name="comment"> </a>
             <div class="comt layui-clear">
-                <a href="${pageContext.request.contextPath}/book/buy/${sessionScope.loginUser.userId}/${bookDetail.userId}/${bookDetail.bookId}"><button class="layui-btn">我要了</button></a>
+                <a href="${pageContext.request.contextPath}/book/buy/${sessionScope.loginUser.userId}/${bookDetail.userId}/${bookDetail.bookId}"><button class="layui-btn" id="button-buy">我要了</button></a>
                 <a href="${pageContext.request.contextPath}/detail/toComm" class="pull-right">写评论</a>
 
             </div>
@@ -75,6 +77,8 @@
         base: '${pageContext.request.contextPath}/resources/js/'
     }).use('blog');
 </script>
+
+
 
 </body>
 </html>

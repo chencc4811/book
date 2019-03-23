@@ -2,11 +2,8 @@ package com.chen.book.controller;
 
 import com.chen.book.entity.Book;
 import com.chen.book.entity.Deal;
-import com.chen.book.entity.User;
-import com.chen.book.entity.ViewObj;
 import com.chen.book.service.BookDealService;
 import com.chen.book.service.BookService;
-import com.chen.book.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("book")
@@ -32,6 +26,10 @@ public class BookController {
     @RequestMapping("buy/{buyerId}/{sellerId}/{bookId}")
     public String buyBook(HttpSession httpSession, Model model,
                           @PathVariable Integer buyerId,@PathVariable Integer sellerId,@PathVariable Integer bookId){
+        if(buyerId==sellerId){
+            model.addAttribute("msg","不可以买自己发布的书籍");
+            return "errorPage";
+        }
         if(httpSession.getAttribute("loginUser")==null){
             model.addAttribute("msg","用户未登录");
             return "errorPage";
@@ -66,8 +64,6 @@ public class BookController {
         List<Deal> bookBuyList=null;
         bookBuyList=bookDealService.getBuyinfo(userId);
         model.addAttribute("bookBuyList",bookBuyList);
-
-
 
         return "userinfo";
     }

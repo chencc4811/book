@@ -1,6 +1,5 @@
 package com.chen.book.controller;
 
-import com.chen.book.entity.Area;
 import com.chen.book.entity.Book;
 import com.chen.book.service.AreaService;
 import com.chen.book.service.BookService;
@@ -10,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("detail")

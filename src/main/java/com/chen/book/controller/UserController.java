@@ -4,7 +4,6 @@ import com.chen.book.bookUtils.BookUtil;
 import com.chen.book.entity.User;
 import com.chen.book.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +29,12 @@ public class UserController {
     @ResponseBody
     public String reg(@RequestParam("username") String userName,
                       @RequestParam("password") String password,
-                      @RequestParam("phone") String phone) {
+                      @RequestParam("phone") String phone,Model model) {
+        if(password.length()<6){
+            model.addAttribute("msg","密码太短");
+            return BookUtil.getJSONString(1, "密码太短");
 
+        }
         User user = new User();
         user.setUserName(userName);
         user.setPassword(password);
