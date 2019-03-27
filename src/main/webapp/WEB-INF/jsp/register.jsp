@@ -37,7 +37,7 @@
         <div class="layui-form-mid layui-word-aux" id="msg">不小于6位</div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">密码</label>
+        <label class="layui-form-label">确认密码</label>
         <div class="layui-input-inline">
             <input type="password" required lay-verify="required" placeholder="请再次输入密码" autocomplete="off" class="layui-input" id="ps1" onkeyup="validate()">
         </div>

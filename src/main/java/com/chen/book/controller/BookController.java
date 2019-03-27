@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +78,22 @@ public class BookController {
 
 
         return "editbook";
+    }
+
+
+    @RequestMapping("search")
+    public String searchBook( Model model,@RequestParam String bookName){
+
+        System.out.println(bookName);
+        if(bookName==null){
+            return "forward:/book/list";
+
+        }
+        List<Book> bookList=new ArrayList<>();
+
+        bookList=bookService.searchBook(0,bookName);
+        model.addAttribute("bookList",bookList);
+        return "index";
     }
 
 }

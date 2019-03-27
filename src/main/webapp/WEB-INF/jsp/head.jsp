@@ -17,6 +17,7 @@
 
 <div class="fly-header layui-bg-black">
     <div class="layui-container">
+        <form method="post" action="${pageContext.request.contextPath}/book/search">
 
         <ul class="layui-nav fly-nav layui-hide-xs">
 
@@ -27,16 +28,19 @@
                 <a href="${pageContext.request.contextPath}/upload/uploadView"><i
                         class="layui-icon layui-icon-release"></i>发布书籍</a>
             </li>
+
             <li class="layui-nav-item">
 
-                <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+                <input type="text" name="bookName" lay-verify="title" autocomplete="off" class="layui-input">
 
             </li>
             <li class="layui-nav-item">
-                <button class="layui-btn">搜索</button>
+                <button class="layui-btn" >搜索</button>
             </li>
 
         </ul>
+        </form>
+
 
 
         <ul class="layui-nav fly-nav-user">

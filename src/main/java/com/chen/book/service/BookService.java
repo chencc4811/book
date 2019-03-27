@@ -48,6 +48,14 @@ public class BookService {
         return bookMapper.queryBookUserResultMap(status);
 
     }
+
+    public List<Book> searchBook(Integer status,String bookName){
+        System.out.println(bookName);
+        Book book=new Book();
+        book.setStatus(status);
+        book.setBookName(bookName);
+        return bookMapper.searchBookUserResultMap(book);
+    }
     public Book findBookUserAreaResultMap(Integer bookId){
         return bookMapper.queryBookUserAreaResultMap(bookId);
 

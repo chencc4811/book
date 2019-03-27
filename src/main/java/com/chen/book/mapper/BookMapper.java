@@ -19,6 +19,7 @@ public interface BookMapper {
     Book queryBookAreaResultMap(int bookId);
     Book queryBookUserAreaResultMap(int bookId);
     int updateBookStatus(Book book);
+    List<Book> searchBookUserResultMap(Book book);
 
 
 }

@@ -89,6 +89,25 @@
 
     </resultMap>
 
+    <select id="searchBookUserResultMap" resultMap="bookUserResultMap">
+        select
+        b.user_id,
+        b.book_id,
+        b.book_name,
+        b.book_desc,
+        b.book_img,
+        b.book_price,
+        u.user_name,
+        u.phone,
+        u.headPic
+        from
+        tb_book b
+        left join tb_user u on b.user_id=u.user_id where status=#{status} and
+                 book_name like "%${bookName}%"
+
+
+    </select>
+
 
     <select id="queryBookUserResultMap" resultMap="bookUserResultMap">
         select
