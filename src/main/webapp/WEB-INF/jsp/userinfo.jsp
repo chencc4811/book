@@ -57,7 +57,7 @@
         <col>
     </colgroup>
     <thead>
-    <tr>我买到的</tr>
+    <tr style="color: #cc0000;">我买到的</tr>
 
     </thead>
     <thead>

@@ -86,7 +86,7 @@ public class UploadController {
         book.setBookPrice(price);
         book.setBookName(bookName);
         book.setBookImg(sqlUrl);
-
+        book.setStatus(0);
         book.setCategory(category);
         book.setArea(area);
         System.out.println(book.toString());

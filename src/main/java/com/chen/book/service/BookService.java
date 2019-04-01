@@ -96,4 +96,8 @@ public class BookService {
     public Book findBookAreaResultMap(Integer bookId){
         return bookMapper.queryBookAreaResultMap(bookId);
     }
+
+    public void updateBook(Book book){
+        bookMapper.updateBook(book);
+    }
 }

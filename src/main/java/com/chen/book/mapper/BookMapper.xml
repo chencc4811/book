@@ -5,8 +5,8 @@
 <mapper namespace="com.chen.book.mapper.BookMapper">
     <insert id="insertBook">
         insert into
-        tb_book(book_name,book_desc,book_img,book_price,user_id,book_category_id,book_area)
-        values(#{bookName},#{bookDesc},#{bookImg},#{bookPrice},#{user.userId},#{category.bookCategoryId},#{area.areaId})
+        tb_book(book_name,book_desc,book_img,book_price,user_id,book_category_id,book_area,status)
+        values(#{bookName},#{bookDesc},#{bookImg},#{bookPrice},#{user.userId},#{category.bookCategoryId},#{area.areaId},#{status})
 
     </insert>
 
@@ -17,7 +17,7 @@
             <if test="bookDesc!=null">book_desc=#{bookDesc},</if>
             <if test="bookImg!=null">book_img=#{bookImg},</if>
             <if test="bookPrice!=null">book_price=#{bookPrice},</if>
-            <if test="category!=null">book_category_id=#{category.bookCategoryId}</if>
+            <if test="areaId!=null">book_area=#{area.areaId}</if>
         </set>
         where book_id=#{bookId}
     </update>
@@ -50,7 +50,8 @@
         book_price,
         book_category_id,
         user_id,
-        book_area
+        book_area,
+        book_id
         from
         tb_book
         where book_id=#{bookId}
