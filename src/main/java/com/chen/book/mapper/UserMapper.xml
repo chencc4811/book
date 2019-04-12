@@ -27,9 +27,20 @@
         user_id
         from tb_user
         where user_name=#{userName}
-
-
     </select>
+
+    <select id="queryAllUser" resultType="com.chen.book.entity.User">
+        select
+        user_id,
+        user_name,
+        phone
+        from
+        tb_user
+    </select>
+
+    <delete id="deleteUser">
+        delete from  tb_user where user_id=#{userId}
+    </delete>
 
 
 </mapper>

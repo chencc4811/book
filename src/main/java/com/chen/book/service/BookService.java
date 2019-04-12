@@ -100,4 +100,21 @@ public class BookService {
     public void updateBook(Book book){
         bookMapper.updateBook(book);
     }
+
+    public Map<String,Object> deleteBook(Integer bookId,Integer status){
+        Map<String,Object> map=new HashMap<>();
+        Book book=new Book();
+        book.setBookId(bookId);
+        book.setStatus(status);
+        try {
+            bookMapper.updateBookStatus(book);
+            map.put("msg","update book succes");
+        } catch (Exception e) {
+            e.printStackTrace();
+            map.put("msg","exception");
+
+        }
+        return map;
+
+    }
 }

@@ -12,8 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +99,7 @@ public class BookController {
 
 
     @RequestMapping("update/{id}")
-    public String updataBook(@PathVariable Integer id,Model model, String bookName, String bookDesc, int price, Integer areaId) {
+    public String updataBook(@PathVariable Integer id, Model model, String bookName, String bookDesc, int price, Integer areaId) {
         System.out.println(price);
 
         Area area = new Area();

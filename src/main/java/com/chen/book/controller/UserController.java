@@ -96,6 +96,7 @@ public class UserController {
             return "error";
         }
         session.removeAttribute("loginUser");
+        session.removeAttribute("loginAdmin");
         model.addAttribute("msg","您已成功退出");
         return "success";
 

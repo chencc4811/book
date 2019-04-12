@@ -11,6 +11,16 @@ public class PageController {
     public String test(){
         return "userinfo";
     }
+    @RequestMapping("adminadduser")
+    public String test9(){
+        return "admin/adduser";
+    }
+
+
+    @RequestMapping("adminaddadmin")
+    public String test11(){
+        return "admin/addadmin";
+    }
 
 
     @RequestMapping("upload")
@@ -25,6 +35,13 @@ public class PageController {
     public String test3(){
         return "login";
     }
+
+
+    @RequestMapping("adminlogin")
+    public String test10(){
+        return "admin/login";
+    }
+
     @RequestMapping("index")
     public String test4(){
         return "index";
@@ -33,6 +50,15 @@ public class PageController {
     @RequestMapping("comment")
     public String test6(){
         return "comment";
+    }
+
+    @RequestMapping("adminindex")
+    public String test7(){
+        return "admin/index";
+    }
+    @RequestMapping("memberlist")
+    public String test8(){
+        return "admin/member-list";
     }
 
 }

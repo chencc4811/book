@@ -5,5 +5,6 @@
 <a href="${pageContext.request.contextPath}/to/comment">comm</a>
 
 <a href="${pageContext.request.contextPath}/book/list">Home Page</a>
+<a href="${pageContext.request.contextPath}/to/adminindex">admin</a>
 </body>
 </html>
