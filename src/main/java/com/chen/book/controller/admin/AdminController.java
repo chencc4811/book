@@ -2,6 +2,7 @@ package com.chen.book.controller.admin;
 
 import com.chen.book.bookUtils.BookUtil;
 import com.chen.book.entity.Admin;
+import com.chen.book.entity.Board;
 import com.chen.book.entity.Book;
 import com.chen.book.entity.User;
 import com.chen.book.service.BookService;
@@ -140,6 +141,25 @@ public class AdminController {
             e.printStackTrace();
             return BookUtil.getJSONString(1, "异常");
         }
+    }
+
+    @RequestMapping("toboard")
+    public String toBoard(Model model){
+        Board board = bookService.findBoard();
+        model.addAttribute("board",board);
+        return "admin/board";
+
+    }
+
+    @RequestMapping("updateboard")
+    public String updateBoard(String board,HttpSession httpSession,Model model){
+        if (httpSession.getAttribute("loginAdmin") == null) {
+            model.addAttribute("msg", "用户未登录");
+            return "errorPage";
+        }
+        System.out.println(board);
+        bookService.updateBoard(board);
+        return "forward:/admin/toboard";
     }
 
 }

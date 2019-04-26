@@ -15,7 +15,11 @@
 </head>
 <body class="fly-full">
 <jsp:include   page="head.jsp" flush="true"/>
-
+<div>
+    <ul class="layui-nav" lay-filter="">
+        <li class="layui-nav-item"><a href="">公告：${board.content}</a></li>
+    </ul>
+</div>
 
 <div class="fly-main" style="overflow: hidden;">
     <ul class="fly-case-list">

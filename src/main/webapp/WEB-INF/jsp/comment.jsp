@@ -30,14 +30,15 @@
 
                 </div>
             </div>
-            <form class="layui-form" action="">
+            <form class="layui-form" action="${pageContext.request.contextPath}/detail/comment/${bookId}">
                 <div class="layui-form-item layui-form-text">
-                    <textarea class="layui-textarea" style="resize:none" placeholder="写点什么啊"></textarea>
+                    <textarea class="layui-textarea" style="resize:none" placeholder="写点什么啊" name="comment"></textarea>
                 </div>
-                <div class="btnbox">
-                    <a href="details.html" id="sure">
-                        确定
-                    </a>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">评论</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
                 </div>
             </form>
         </div>

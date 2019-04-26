@@ -1,6 +1,7 @@
 package com.chen.book.mapper;
 
 import com.chen.book.entity.Admin;
+import com.chen.book.entity.Board;
 import com.chen.book.entity.User;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface AdminMapper {
     List<Admin> queryAllAdmin();
 
     void deleteAdmin(int id);
+
 }

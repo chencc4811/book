@@ -1,9 +1,13 @@
 package com.chen.book.service;
 
+import com.chen.book.entity.Board;
 import com.chen.book.entity.Book;
+import com.chen.book.entity.Comment;
 import com.chen.book.entity.Deal;
+import com.chen.book.mapper.BoardMapper;
 import com.chen.book.mapper.BookDealMapper;
 import com.chen.book.mapper.BookMapper;
+import com.chen.book.mapper.CommentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,12 @@ public class BookService {
     private BookMapper bookMapper;
     @Autowired
     private BookDealMapper bookDealMapper;
+    @Autowired
+    private BoardMapper boardMapper;
+    @Autowired
+    private CommentMapper commentMapper;
+
+
     public List<Book> bookList(){
         List<Book> books=new ArrayList<>();
         books=bookMapper.queryAllBook();
@@ -29,7 +39,6 @@ public class BookService {
 
     public List<Book> findBookByUserId(int userId){
         return bookMapper.queryBookByUserId(userId);
-
     }
 
     public Map<String,Object> insertBook(Book book){
@@ -59,6 +68,11 @@ public class BookService {
     public Book findBookUserAreaResultMap(Integer bookId){
         return bookMapper.queryBookUserAreaResultMap(bookId);
 
+    }
+
+    public List<Comment> getComment(Integer bookId){
+        System.out.println(bookId);
+        return commentMapper.queryComment(bookId);
     }
 
     public Map<String,Object> dealBook(Integer sellerId, Integer buyerId, Integer bookId,Integer status){
@@ -117,4 +131,22 @@ public class BookService {
         return map;
 
     }
+
+
+    public Board findBoard(){
+        return boardMapper.queryBoard();
+    }
+
+    public void updateBoard(String content){
+        boardMapper.updateBoard(content);
+    }
+
+
+
+    public void addComment(Comment comment){
+        commentMapper.insertComment(comment);
+    }
+
+
+
 }

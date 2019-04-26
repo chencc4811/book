@@ -30,6 +30,10 @@
                 <dd><a href="${pageContext.request.contextPath}/admin/adminlist">删除管理员</a></dd>
             </dl>
         </li>
+
+        <li class="layui-nav-item">
+            <a href="${pageContext.request.contextPath}/admin/toboard">公告管理</a>
+        </li>
     </ul>
 
 

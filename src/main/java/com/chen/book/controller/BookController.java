@@ -1,6 +1,7 @@
 package com.chen.book.controller;
 
 import com.chen.book.entity.Area;
+import com.chen.book.entity.Board;
 import com.chen.book.entity.Book;
 import com.chen.book.entity.Deal;
 import com.chen.book.service.AreaService;
@@ -49,6 +50,8 @@ public class BookController {
         List<Book> bookList = new ArrayList<>();
         bookList = bookService.findBookUserResultMap(0);
         model.addAttribute("bookList", bookList);
+        Board board =bookService.findBoard();
+        model.addAttribute("board",board);
         return "index";
     }
 
@@ -116,5 +119,6 @@ public class BookController {
 
 
     }
+
 
 }
